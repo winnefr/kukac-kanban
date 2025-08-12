@@ -9,4 +9,12 @@ describe("Kanban Dusky Five - Fluxos principais", () => {
     cy.get("div.content h1");
     cy.contains("Quadro Kanban").should("be.visible");
   });
+
+  it('Deve permitir adicionar uma lista', () => {
+    cy.contains('Adicionar outra lista').click();
+    cy.get('div.custom-input input[type="text"]')
+      .should('be.visible')
+      .type('Nova lista{enter}');
+    cy.contains('Nova lista').should('be.visible');
+  });
 });
